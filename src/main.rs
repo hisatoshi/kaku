@@ -27,6 +27,11 @@ fn main() -> Result<()> {
         .with_context(|| format!("ファイルの読み込みに失敗しました: {:?}", prompt_path))?;
 
     let trimmed = content.trim_end();
+    if trimmed.is_empty() {
+        fs::remove_file(&prompt_path).ok();
+        return Ok(());
+    }
+
     clipboard::copy(trimmed)?;
 
     Ok(())
