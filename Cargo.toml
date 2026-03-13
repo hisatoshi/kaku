@@ -1,0 +1,15 @@
+[package]
+name = "kaku"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "kaku"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+arboard = "3"
+chrono = "0.4"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
